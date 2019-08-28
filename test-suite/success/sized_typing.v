@@ -102,8 +102,8 @@ Fixpoint quicksort l :=
   match l with
   | nil => nil
   | cons hd tl => append nat
-    (quicksort (filter nat (fun x => (ltb x hd)) tl))
-    (quicksort (filter nat (fun x => negb (ltb x hd)) tl))
+    (quicksort (filter nat (fun x => (leb x hd)) tl))
+    (cons hd (quicksort (filter nat (fun x => negb (leb x hd)) tl)))
   end.
 
 (** Recursive functions on coinductive streams. *)
